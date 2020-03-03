@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+here="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+targets=(bash_profile bashrc profile)
+for t in "${targets[@]}" ; do
+    dest="$HOME/.$t"
+    [[ -f "$dest" ]] && [[ ! -L "$dest" ]] && cp "$dest" "${dest}.bak"
+    ln -sf "$here/$t" "$HOME/.$t"
+done
