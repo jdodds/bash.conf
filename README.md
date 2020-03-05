@@ -1,3 +1,6 @@
+![](https://github.com/jdodds/bash.conf/workflows/shellcheck/badge.svg)
+
+
 base config for bash, using these rules:
 
 + .profile should be POSIX compliant
