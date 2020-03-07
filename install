@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-here="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+[[ ! -x $(command -v git) ]] && echo "you're gonna need git installed" && exit 1
+
+here=$(git rev-parse --show-toplevel)
+
 targets=(bash_profile bashrc profile)
 for t in "${targets[@]}" ; do
-    dest="$HOME/.$t"
-    [[ -f "$dest" ]] && [[ ! -L "$dest" ]] && cp "$dest" "${dest}.bak"
-    ln -sf "$here/$t" "$HOME/.$t"
+    src="$here/$t"
+    dst="$HOME/.$t"
+    [[ -f "$dst" ]] && [[ ! "$here" -ef "$dst" ]] && mv "$dst" "$dst.bak"
+    ln -sf "$src" "$dst"
 done

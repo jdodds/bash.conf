@@ -4,3 +4,5 @@
 [ ! -d "$HOME/.local/bin" ] && mkdir -p "$HOME/.local/bin"
 
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+[ -f "$HOME/.profile.local" ] && . "$HOME/.profile.local"
