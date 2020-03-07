@@ -49,8 +49,10 @@ export CLICOLOR=1
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-#shellcheck disable=SC2034
+# shellcheck disable=SC2034
 GIT_PS1_SHOWDIRTYSTATE=true
+
+# shellcheck disable=SC2016
 printf -v PS1 '%s\w%s$(__git_ps1)\n\$ ' "$bold" "$normal"
 
 # shellcheck disable=SC1090
