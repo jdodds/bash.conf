@@ -53,7 +53,7 @@ normal=$(tput sgr0)
 GIT_PS1_SHOWDIRTYSTATE=true
 
 # shellcheck disable=SC2016
-printf -v PS1 '%s\w%s$(__git_ps1)\n\$ ' "$bold" "$normal"
+printf -v PS1 '%s\w%s$(__git_ps1)\n\u@\h \$ ' "$bold" "$normal"
 
 # shellcheck disable=SC1090
 [[ -f "$HOME/.bashrc.local" ]] && . "$HOME/.bashrc.local"
