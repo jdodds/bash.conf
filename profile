@@ -5,4 +5,5 @@
 
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# shellcheck disable=SC1090
 [ -f "$HOME/.profile.local" ] && . "$HOME/.profile.local"
